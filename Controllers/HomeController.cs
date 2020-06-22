@@ -64,28 +64,6 @@ namespace Bourse.Controllers
             return View();
         }
 
-        //[HttpGet]
-        //public ActionResult DownloadFile()
-        //{
-        //    DownloadFile model = new DownloadFile();
-        //    //List<Symbol> list = null;
-        //    //using (ApplicationDbContext dbContext = new ApplicationDbContext())
-        //    //{
-        //    //    if (dbContext.Symbols.Count() >= 1)
-        //    //    {
-        //    //        list = dbContext.Symbols.ToList();
-        //    //        model.Symbols = list;
-        //    //    }
-        //    //    else
-        //    //    {
-        //    //        //model.Symbols = null;
-        //    //    }
-        //    //}
-
-        //    //return View(model);
-        //    return View(model);
-        //}
-
         [HttpGet]
         public ActionResult DownloadFile(int id)
         {
@@ -101,8 +79,6 @@ namespace Bourse.Controllers
             {
                 string unicId = "";
                 string content = "";
-                //string id =
-                //    "33603212156438463";
                 SubCategories subCategories = new SubCategories();
                 using (ApplicationDbContext dbContext = new ApplicationDbContext())
                 {
@@ -110,8 +86,6 @@ namespace Bourse.Controllers
                     subCategories = dbContext.SubCategories.Find(id);
                 }
                 unicId = subCategories.UniqueID;
-                //string id =
-                //"47302318535715632";
 
                 string remotePathName =
                     $"{ RemoteDownloadUri }t=i&a=1&b=0&i={ unicId }";
@@ -260,19 +234,6 @@ namespace Bourse.Controllers
 
         }
 
-        public ActionResult AddPotentialCustomer()
-        {
-            return View();
-        }
-        public ActionResult EditPotentialCustomer()
-        {
-            return View();
-        }
-
-        public ActionResult AddOwnerToHologram()
-        {
-            return View();
-        }
     }
 }
 

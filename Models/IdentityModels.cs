@@ -30,21 +30,11 @@ namespace Bourse.Models
         {
             return new ApplicationDbContext();
         }
-        //protected override void OnModelCreating(DbModelBuilder modelBuilder)
-        //{
-        //    modelBuilder.Entity<Category>()
-        //        .HasMany(e => e.SubCategories)
-        //        .WithOptional(e => e.Category)
-        //        .HasForeignKey(e => e.CategoryId);
-        //}
         public System.Data.Entity.DbSet<Bourse.Models.Symbol> Symbols { get; set; }
         public System.Data.Entity.DbSet<Bourse.Models.Category> Categories { get; set; }
         public DbSet<Bourse.Models.SubCategories> SubCategories { get; set; }
         public DbSet<Employee> Employees { get; set; }
-        public DbSet<PotentialCustomer> PotentialCustomers { get; set; }
 
         public System.Data.Entity.DbSet<Bourse.Models.Product> Products { get; set; }
-        public DbSet<JoinedHologram> joinedHolograms { get; set; }
-        public DbSet<HologramOwner> HologramOwners { get; set; }
     }
 }

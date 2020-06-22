@@ -210,7 +210,6 @@
     <Compile Include="Controllers\SymbolsController.cs" />
     <Compile Include="DAL\GenericRepository.cs" />
     <Compile Include="DAL\UnitOfWork.cs" />
-    <Compile Include="Enums\PotentialCustomerStatus.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -248,11 +247,8 @@
     <Compile Include="Models\Category.cs" />
     <Compile Include="Models\DownloadFile.cs" />
     <Compile Include="Models\Employee.cs" />
-    <Compile Include="Models\HologramOwner.cs" />
     <Compile Include="Models\IdentityModels.cs" />
-    <Compile Include="Models\JoinedHologram.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
-    <Compile Include="Models\PotentialCustomer.cs" />
     <Compile Include="Models\Product.cs" />
     <Compile Include="Models\SubCategories.cs" />
     <Compile Include="Models\Symbol.cs" />
@@ -260,6 +256,10 @@
     <Compile Include="Startup.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="App_Data\aspnet-Bourse-20200309052655.mdf" />
+    <Content Include="App_Data\aspnet-Bourse-20200309052655_log.ldf">
+      <DependentUpon>aspnet-Bourse-20200309052655.mdf</DependentUpon>
+    </Content>
     <Content Include="Content\bootstrap-theme.css" />
     <Content Include="Content\bootstrap-theme.min.css" />
     <Content Include="Content\bootstrap.css" />
@@ -574,18 +574,15 @@
     <Content Include="Views\Symbols\Edit.cshtml" />
     <Content Include="Views\Symbols\Index.cshtml" />
     <Content Include="Views\Employees\Index.cshtml" />
-    <Content Include="Views\Home\AddPotentialCustomer.cshtml" />
-    <Content Include="Views\Home\EditPotentialCustomer.cshtml" />
     <Content Include="Views\Products\Create.cshtml" />
     <Content Include="Views\Products\Delete.cshtml" />
     <Content Include="Views\Products\Details.cshtml" />
     <Content Include="Views\Products\Edit.cshtml" />
     <Content Include="Views\Products\Index.cshtml" />
     <Content Include="Views\Products\AddJoinedHologram.cshtml" />
-    <Content Include="Views\Home\AddOwnerToHologram.cshtml" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="App_Data\" />
+    <Folder Include="Enums\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />

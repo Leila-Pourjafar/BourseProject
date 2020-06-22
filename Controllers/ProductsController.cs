@@ -13,7 +13,6 @@ namespace Bourse.Controllers
 {
     public class ProductsController : Controller
     {
-        //private ApplicationDbContext db = new ApplicationDbContext();
         private UnitOfWork unitOfWork = new UnitOfWork();
         // GET: Products
         public ActionResult Index()
@@ -47,12 +46,6 @@ namespace Bourse.Controllers
         public JsonResult EditProduct(int id, Product product)
         {
             product.Id = id;
-            //if (repository.Update(product))
-            //{
-            //    return Json(repository.GetAll(), JsonRequestBehavior.AllowGet);
-            //}
-
-            //return Json(null);
             unitOfWork.ProductRepository.Update(product);
             unitOfWork.Save();
             return Json(unitOfWork.ProductRepository.Get(), JsonRequestBehavior.AllowGet);
@@ -60,14 +53,6 @@ namespace Bourse.Controllers
 
         public JsonResult DeleteProduct(int id)
         {
-
-            //if (repository.Delete(id))
-            //{
-            //    return Json(new { Status = true }, JsonRequestBehavior.AllowGet);
-            //}
-
-            //return Json(new { Status = false }, JsonRequestBehavior.AllowGet);
-
             try
             {
                 unitOfWork.ProductRepository.Delete(id);
