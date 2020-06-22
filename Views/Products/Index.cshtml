@@ -1,0 +1,124 @@
+﻿
+@{
+    ViewBag.Title = "Products List";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@section scripts {
+
+    <link href="~/Content/CustomStyle.css" rel="stylesheet" />
+    <script src="~/Scripts/jquery-3.4.1.min.js"></script>
+    @*<script src="~/Scripts/jquery-1.8.2.min.js"></script>*@
+    <script src="~/Scripts/knockout-3.5.1.js"></script>
+    <script src="~/Scripts/knockout-3.5.1.debug.js"></script>
+    @*<script src="~/Scripts/knockout-2.2.0.js"></script>*@
+    @*<script src="~/Scripts/knockout-2.2.0.debug.js"></script>*@
+    <script src="~/Scripts/KnockoutDemo.js"></script>
+}
+
+<div id="body">
+
+    <h2>Knockout CRUD Operations with MVC4</h2>
+
+    <h3>List of Products</h3>
+
+    <table id="products1" data-bind="visible: Products().length > 0">
+        <thead>
+            <tr>
+                <th style="display: none;">ID</th>
+                <th>Name</th>
+                <th>Category</th>
+                <th>Price</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody data-bind="foreach: Products">
+            <tr>
+                <td data-bind="visible:false , text: Id "></td>
+                <td data-bind="text: Name"></td>
+                <td data-bind="text: Category"></td>
+                <td data-bind="text: formatCurrency(Price)"></td>
+
+                <td>
+                    <button data-bind="click: $root.edit">Edit</button>
+                    <button data-bind="click: $root.delete">Delete</button>
+
+                </td>
+
+            </tr>
+        </tbody>
+        <tfoot>
+            <tr>
+                <td colspan="6">
+                    <hr />
+                </td>
+            </tr>
+            <tr>
+                <td>Total :</td>
+                <td></td>
+                <td data-bind="text: formatCurrency($root.Total())"></td>
+                <td></td>
+            </tr>
+        </tfoot>
+    </table>
+    <br />
+    <div style="border-top: solid 2px #282828; width: 430px; height: 10px"> </div>
+
+    <div data-bind="if: Product">
+        <div>
+            <h2>Update Product</h2>
+        </div>
+        <div>
+            <label for="productId" data-bind="visible: false">ID</label>
+            <label data-bind="text: Product().Id, visible: false"></label>
+
+        </div>
+        <div>
+            <label for="name">Name</label>
+            <input data-bind="value: Product().Name" type="text" title="Name" />
+        </div>
+
+        <div>
+            <label for="category">Category</label>
+            <input data-bind="value: Product().Category" type="text" title="Category" />
+        </div>
+
+        <div>
+            <label for="price">Price</label>
+            <input data-bind="value: Product().Price" type="text" title="Price" />
+
+        </div>
+        <br />
+        <div>
+            <button data-bind="click: $root.update">Update</button>
+            <button data-bind="click: $root.cancel">Cancel</button>
+
+        </div>
+    </div>
+
+    <div data-bind="ifnot: Product()">
+        <div>
+            <h2>Add New Product</h2>
+        </div>
+        <div>
+            <label for="name">Name</label>
+            <input data-bind="value: $root.Name" type="text" title="Name" />
+        </div>
+
+        <div>
+            <label for="category">Category</label>
+            <input data-bind="value: $root.Category" type="text" title="Category" />
+        </div>
+
+        <div>
+            <label for="price">Price</label>
+            <input data-bind="value: $root.Price" type="text" title="Price" />
+        </div>
+        <br />
+        <div>
+            <button data-bind="click: $root.create">Save</button>
+            <button data-bind="click: $root.reset">Reset</button>
+
+        </div>
+    </div>
+</div>
