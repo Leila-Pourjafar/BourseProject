@@ -1,0 +1,29 @@
+﻿
+@{
+    ViewBag.Title = "ShowInfo";
+}
+
+<h2>ShowInfo</h2>
+<div id="app">
+    <textarea class="form-control" v-model="text" v-on:keyup="countChars"></textarea>
+    <span>{{count}}</span>
+</div>
+
+@section  scripts{ 
+    <script src="~/Scripts/vue.js"></script>
+    <script>
+        var app = new Vue({
+            el: "#app",
+            data: {
+                text: "",
+                count:0,
+            },
+            methods: {
+                countChars: function () {
+                    this.count = this.text.length;
+                }
+            }
+        });
+    </script>
+
+}

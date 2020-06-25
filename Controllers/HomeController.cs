@@ -17,6 +17,10 @@ namespace Bourse.Controllers
             return View();
         }
 
+        public ActionResult ShowInfo()
+        {
+            return View();
+        }
         public ActionResult About()
         {
             ViewBag.Message = "Your application description page.";

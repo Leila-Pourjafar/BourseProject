@@ -524,6 +524,8 @@
     <Content Include="Scripts\knockout-3.5.1.js" />
     <Content Include="Scripts\KnockoutDemo.js" />
     <Content Include="Scripts\modernizr-2.8.3.js" />
+    <Content Include="Scripts\vue.js" />
+    <Content Include="Scripts\vue.min.js" />
     <Content Include="Views\Symbols\HtmlPage1.html" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
@@ -580,6 +582,7 @@
     <Content Include="Views\Products\Edit.cshtml" />
     <Content Include="Views\Products\Index.cshtml" />
     <Content Include="Views\Products\AddJoinedHologram.cshtml" />
+    <Content Include="Views\Home\ShowInfo.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Enums\" />
