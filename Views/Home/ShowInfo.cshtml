@@ -25,7 +25,8 @@
             <td>{{ item.price }}</td>
             <td>{{ item.count }}</td>
             <td>
-                <button type="button" v-on:click="plus(item)"></button>
+                <button type="button" v-on:click="plus(item)" class="btn btn-success glyphicon-plus">+ </button>
+                <button type="button" v-on:click="minus(item)" class="btn btn-danger glyphicon-minus"> -</button>
             </td>
             <td>{{ item.price * item.count }}</td>
 
@@ -52,6 +53,19 @@
             el: "#info",
             data: {
                 items: products,
+            },
+            methods: {
+                plus: function (item) {
+                    if (item.count < 10) {
+                        item.count++
+                    }
+                },
+
+                minus: function (item) {
+                    if (item.count > 0) {
+                        item.count--
+                    }
+                }
             }
         });
     </script>
