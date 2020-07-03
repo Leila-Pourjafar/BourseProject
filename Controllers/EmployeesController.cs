@@ -8,6 +8,7 @@ using System.Web.Mvc;
 
 namespace Bourse.Controllers
 {
+    
     public class EmployeesController : Controller
     {
         private UnitOfWork unitOfWork = new UnitOfWork();
@@ -25,19 +26,16 @@ namespace Bourse.Controllers
         {
             return View();
         }
+
+        [ActionFilters.Log]
         public ActionResult ShowData()
         {
             return View();
         }
+
+        [ActionFilters.Log]
         public JsonResult ListData()
         {
-            //var data = new
-            //{
-            //    Title = "hi",
-            //    Name = "sara",
-            //    Id = 1
-
-            //};
             var data = userService.GetInfo(1);
             return Json(data, JsonRequestBehavior.AllowGet);
         }
@@ -57,6 +55,7 @@ namespace Bourse.Controllers
             var Employee = unitOfWork.EmployeeRepository.GetByID(ID);
             return Json(Employee, JsonRequestBehavior.AllowGet);
         }
+
         public JsonResult Update(Employee emp)
         {
             unitOfWork.EmployeeRepository.Update(emp);
