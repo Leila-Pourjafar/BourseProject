@@ -200,6 +200,7 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
+    <Compile Include="BLL\UserBusiness.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\CategoriesController.cs" />
     <Compile Include="Controllers\EmployeesController.cs" />
@@ -427,6 +428,8 @@
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
+    <Content Include="Scripts\axios.js" />
+    <Content Include="Scripts\axios.min.js" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="Content\DataTables\css\semanticui.scss" />
@@ -583,6 +586,7 @@
     <Content Include="Views\Products\Index.cshtml" />
     <Content Include="Views\Products\AddJoinedHologram.cshtml" />
     <Content Include="Views\Home\ShowInfo.cshtml" />
+    <Content Include="Views\Employees\ShowData.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Enums\" />

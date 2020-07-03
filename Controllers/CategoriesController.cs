@@ -8,6 +8,7 @@ using System.Net;
 using System.Net.Http;
 using System.Web.Http;
 using System.Web.Http.Description;
+using System.Web.Mvc;
 using Bourse.Models;
 
 namespace Bourse.Controllers
@@ -22,6 +23,8 @@ namespace Bourse.Controllers
             return db.Categories;
         }
 
+       
+       
         // GET: api/Categories/5
         [ResponseType(typeof(Category))]
         public IHttpActionResult GetCategory(int id)

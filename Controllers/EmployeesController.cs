@@ -11,8 +11,12 @@ namespace Bourse.Controllers
     public class EmployeesController : Controller
     {
         private UnitOfWork unitOfWork = new UnitOfWork();
+        private BLL.IUserBusiness userService;
         // GET: Home
-
+        public EmployeesController()
+        {
+            this.userService = new BLL.UserBusiness();
+        }
         public ActionResult Employees()
         {
             return View();
@@ -20,6 +24,22 @@ namespace Bourse.Controllers
         public ActionResult Index()
         {
             return View();
+        }
+        public ActionResult ShowData()
+        {
+            return View();
+        }
+        public JsonResult ListData()
+        {
+            //var data = new
+            //{
+            //    Title = "hi",
+            //    Name = "sara",
+            //    Id = 1
+
+            //};
+            var data = userService.GetInfo(1);
+            return Json(data, JsonRequestBehavior.AllowGet);
         }
         public JsonResult List()
         {

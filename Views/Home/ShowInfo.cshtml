@@ -8,6 +8,9 @@
     <textarea class="form-control" v-model="text" v-on:keyup="countChars"></textarea>
     <span>{{count}}</span>
 </div>
+<div id="app-3">
+    <span v-if="seen">Now you see me</span>
+</div>
 <!-- #info -->
 
 <div id="info">
@@ -25,8 +28,8 @@
             <td>{{ item.price }}</td>
             <td>{{ item.count }}</td>
             <td>
-                <button type="button" v-on:click="plus(item)" class="btn btn-success glyphicon-plus">+ </button>
-                <button type="button" v-on:click="minus(item)" class="btn btn-danger glyphicon-minus"> -</button>
+                <button type="button" v-on:click="plus(item)" class="btn btn-success glyphicon-plus"></button>
+                <button type="button" v-on:click="minus(item)" class="btn btn-danger glyphicon-minus"></button>
             </td>
             <td>{{ item.price * item.count }}</td>
 
@@ -39,6 +42,13 @@
 @section  scripts{
     <script src="~/Scripts/vue.js"></script>
     <script>
+        var app3 = new Vue({
+            el: '#app-3',
+            data: {
+                seen: true
+            }
+        });
+
         const products =
             [
                 { name: 'Name1', price: 10, count: 1 },
