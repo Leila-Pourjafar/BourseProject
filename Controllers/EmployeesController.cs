@@ -8,7 +8,7 @@ using System.Web.Mvc;
 
 namespace Bourse.Controllers
 {
-    
+
     public class EmployeesController : Controller
     {
         private UnitOfWork unitOfWork = new UnitOfWork();
@@ -41,6 +41,7 @@ namespace Bourse.Controllers
             try
             {
                 var data = userService.GetInfo(1);
+                loger.Log(LogManeger.LogLevel.Info, this.GetType(), "test");
                 return Json(data, JsonRequestBehavior.AllowGet);
             }
 
