@@ -13,10 +13,12 @@ namespace Bourse.Controllers
     {
         private UnitOfWork unitOfWork = new UnitOfWork();
         private BLL.IUserBusiness userService;
+        private LogManeger.ILog loger;
         // GET: Home
         public EmployeesController()
         {
             this.userService = new BLL.UserBusiness();
+            this.loger = new LogManeger.Utility();
         }
         public ActionResult Employees()
         {
@@ -36,8 +38,17 @@ namespace Bourse.Controllers
         [ActionFilters.Log]
         public JsonResult ListData()
         {
-            var data = userService.GetInfo(1);
-            return Json(data, JsonRequestBehavior.AllowGet);
+            try
+            {
+                var data = userService.GetInfo(1);
+                return Json(data, JsonRequestBehavior.AllowGet);
+            }
+
+            catch (Exception ex)
+            {
+                loger.Log(LogManeger.LogLevel.Error, this.GetType(), ex.Message);
+                throw;
+            }
         }
         public JsonResult List()
         {

@@ -628,6 +628,12 @@
       <DependentUpon>202004181553582_V06.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="LogManeger\LogManeger\LogManeger.csproj">
+      <Project>{3b08732e-9d24-4e52-83cd-c7b5c862390b}</Project>
+      <Name>LogManeger</Name>
+    </ProjectReference>
+  </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
