@@ -1,0 +1,98 @@
+﻿
+@{
+    ViewBag.Title = "ShowInfo";
+}
+
+<h2>ShowInfo</h2>
+<div id="app">
+    <textarea class="form-control" v-model="text" v-on:keyup="countChars"></textarea>
+    <span>{{count}}</span>
+</div>
+<div id="app-3">
+    <span v-if="seen">Now you see me</span>
+</div>
+<!-- #info -->
+
+<div id="info">
+    <table class="table table-bordered table-striped table-hover">
+        <tr>
+            <th>Name</th>
+            <th>Price</th>
+            <th>Count</th>
+            <th>Founctions</th>
+            <th>Sub Total</th>
+        </tr>
+        <tr v-for="item in items">
+
+            <td>{{ item.name }}</td>
+            <td>{{ item.price }}</td>
+            <td>{{ item.count }}</td>
+            <td>
+                <button type="button" v-on:click="plus(item)" class="btn btn-success glyphicon-plus"></button>
+                <button type="button" v-on:click="minus(item)" class="btn btn-danger glyphicon-minus"></button>
+            </td>
+            <td>{{ item.price * item.count }}</td>
+
+        </tr>
+    </table>
+
+</div>
+
+<!-- #endregion -->
+@section  scripts{
+    <script src="~/Scripts/vue.js"></script>
+    <script>
+        var app3 = new Vue({
+            el: '#app-3',
+            data: {
+                seen: true
+            }
+        });
+
+        const products =
+            [
+                { name: 'Name1', price: 10, count: 1 },
+                { name: 'Name2', price: 20, count: 1 },
+                { name: 'Name3', price: 30, count: 1 },
+                { name: 'Name4', price: 40, count: 1 },
+                { name: 'Name5', price: 50, count: 1 },
+            ]
+
+        const app = new Vue({
+
+            el: "#info",
+            data: {
+                items: products,
+            },
+            methods: {
+                plus: function (item) {
+                    if (item.count < 10) {
+                        item.count++
+                    }
+                },
+
+                minus: function (item) {
+                    if (item.count > 0) {
+                        item.count--
+                    }
+                }
+            }
+        });
+    </script>
+
+    <script>
+        var appn = new Vue({
+            el: "#app",
+            data: {
+                text: "",
+                count: 0,
+            },
+            methods: {
+                countChars: function () {
+                    this.count = this.text.length;
+                }
+            }
+        });
+    </script>
+
+}
